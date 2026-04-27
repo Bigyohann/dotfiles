@@ -1,0 +1,35 @@
+Include {{ .chezmoi.homeDir }}/.orbstack/ssh/config
+
+# {{ .company_name | title }} projects on GitHub
+Host github.com-{{ .company_name }}
+    HostName github.com
+    User git
+    IdentityFile {{ .chezmoi.homeDir }}/.ssh/id_ed25519_{{ .company_name }}
+    IdentitiesOnly yes
+    AddKeysToAgent yes
+    UseKeychain yes
+
+# {{ .company_name | title }} projects on GitLab
+Host gitlab.com
+    HostName gitlab.com
+    User git
+    IdentityFile {{ .chezmoi.homeDir }}/.ssh/id_ed25519_{{ .company_name }}
+    IdentitiesOnly yes
+    AddKeysToAgent yes
+    UseKeychain yes
+
+# Personal projects on GitHub
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile {{ .chezmoi.homeDir }}/.ssh/id_ed25519_personal
+    IdentitiesOnly yes
+    AddKeysToAgent yes
+    UseKeychain yes
+
+# Default identity
+Host *
+    IdentityFile {{ .chezmoi.homeDir }}/.ssh/id_ed25519_personal
+    IdentitiesOnly yes
+    AddKeysToAgent yes
+    UseKeychain yes

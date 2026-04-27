@@ -1,0 +1,21 @@
+[user]
+        name = Yohann BIGLIA
+        email = {{ .work_email | quote }}
+[core]
+        pager = delta
+[interactive]
+        diffFilter = delta --color-only
+[delta]
+        navigate = true
+        side-by-side = true
+[merge]
+  conflictStyle = zdiff3
+[includeIf "gitdir:{{ .chezmoi.homeDir }}/{{ .personal_dir }}/**"]
+  path = {{ .chezmoi.homeDir }}/{{ .personal_dir }}/.gitconfig
+[includeIf "gitdir:{{ .chezmoi.homeDir }}/.config/**"]
+  path = {{ .chezmoi.homeDir }}/{{ .personal_dir }}/.gitconfig
+
+{{- range .company_dirs }}
+[includeIf "gitdir:{{ $.chezmoi.homeDir }}/{{ . }}/**"]
+  path = {{ $.chezmoi.homeDir }}/{{ $.company_dir }}/.gitconfig
+{{- end }}

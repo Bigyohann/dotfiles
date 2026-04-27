@@ -1,0 +1,24 @@
+{ config, pkgs, ... }:
+
+{
+  home.username = "{{ .chezmoi.username }}";
+  home.homeDirectory = "{{ .chezmoi.homeDir }}";
+  home.stateVersion = "23.11";
+
+  home.packages = with pkgs; [
+    git
+    chezmoi
+    bat
+    jq
+    fzf
+    ripgrep
+    fd
+    eza
+    ninja
+    cmake
+    gettext
+    libtool
+  ];
+
+  programs.home-manager.enable = true;
+}

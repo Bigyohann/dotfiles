@@ -1,0 +1,9 @@
+[user]
+    name = Yohann BIGLIA
+    email = {{ .work_email | quote }}
+[core]
+    sshCommand = ssh -i ~/.ssh/id_ed25519_{{ .company_name }} -o IdentitiesOnly=yes
+[url "git@github.com-{{ .company_name }}:"]
+    insteadOf = git@github.com:
+[url "git@gitlab.com-{{ .company_name }}:"]
+    insteadOf = git@gitlab.com:
