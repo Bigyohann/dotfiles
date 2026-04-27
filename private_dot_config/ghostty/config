@@ -1,0 +1,39 @@
+# Font configuration
+font-family = "Iosevka NFM"
+font-size = 14
+font-thicken = true
+
+# Theme
+theme = Catppuccin Macchiato
+
+# Window
+macos-option-as-alt = left
+unfocused-split-opacity = 1.0
+
+# Keybindings
+keybind = ctrl+shift+n=new_window
+
+# Tmux-like splits
+keybind = ctrl+a>shift+five=new_split:right
+keybind = ctrl+a>-=new_split:down
+
+# Navigation (Ghostty splits - use prefix to avoid nvim conflict)
+keybind = ctrl+a>h=goto_split:left
+keybind = ctrl+a>j=goto_split:down
+keybind = ctrl+a>k=goto_split:up
+keybind = ctrl+a>l=goto_split:right
+
+# Tabs (like tmux windows)
+keybind = ctrl+a>c=new_tab
+keybind = ctrl+a>x=close_surface
+keybind = ctrl+a>n=next_tab
+keybind = ctrl+a>p=previous_tab
+keybind = ctrl+a>1=goto_tab:1
+keybind = ctrl+a>2=goto_tab:2
+keybind = ctrl+a>3=goto_tab:3
+keybind = ctrl+a>4=goto_tab:4
+keybind = ctrl+a>5=goto_tab:5
+keybind = ctrl+a>6=goto_tab:6
+keybind = ctrl+a>7=goto_tab:7
+keybind = ctrl+a>8=goto_tab:8
+keybind = ctrl+a>9=goto_tab:9
