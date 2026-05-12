@@ -1,0 +1,27 @@
+#!/bin/bash
+
+echo "Checking SSH keys..."
+
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh
+
+# Generate Personal Key
+PERSONAL_KEY="$HOME/.ssh/id_ed25519_personal"
+if [ ! -f "$PERSONAL_KEY" ]; then
+    echo "Generating Personal SSH Key..."
+    # We use template variables for the comment.
+    ssh-keygen -t ed25519 -C "{{ .personal_email | default "personal" }}" -f "$PERSONAL_KEY" -N ""
+    ssh-add --apple-use-keychain "$PERSONAL_KEY"
+else
+    echo "Personal SSH Key already exists."
+fi
+
+# Generate Company Key
+COMPANY_KEY="$HOME/.ssh/id_ed25519_{{ .company_name }}"
+if [ ! -f "$COMPANY_KEY" ]; then
+    echo "Generating Company SSH Key ({{ .company_name }})..."
+    ssh-keygen -t ed25519 -C "{{ .work_email }}" -f "$COMPANY_KEY" -N ""
+    ssh-add --apple-use-keychain "$COMPANY_KEY"
+else
+    echo "Company SSH Key already exists."
+fi

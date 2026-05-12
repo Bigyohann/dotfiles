@@ -1,0 +1,8 @@
+[phpstan]
+command = ""
+
+[mago]
+command = ""
+
+[phpcs]
+command = ""
